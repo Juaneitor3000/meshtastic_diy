@@ -17,7 +17,7 @@
 // --------------------------------------------------------------------------
 // Button (NO usar GPIO9)
 // --------------------------------------------------------------------------
-#define BUTTON_PIN 0
+#define BUTTON_PIN 9 // con cuidado, si enciende con este presionado entrara en modo de programacion, si se suelta se reiniciara y correra el programa normal, si se mantiene presionado se quedara en modo de programacion
 
 // --------------------------------------------------------------------------
 // I2C (defined but unused yet)
@@ -54,7 +54,7 @@
 #define LORA_RESET    SX126X_RESET
 
 // SX1262 specifics
-#define LORA_DIO0     RADIOLIB_NC
+#define LORA_DIO0    RADIOLIB_NC
 #define SX126X_DIO0  LORA_DIO0
 
 // TCXO (DX-LR30)
@@ -91,7 +91,8 @@
 #define SX126X_TXEN  3
 
 
-
+#define BATTERY_PIN 4
+#define ADC_CHANNEL ADC1_CHANNEL_4
 
 
 
