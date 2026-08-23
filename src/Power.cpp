@@ -58,19 +58,6 @@ esp_adc_cal_characteristics_t *adc_characs = (esp_adc_cal_characteristics_t *)ca
 #define ETH ETH2
 #endif // HAS_ETHERNET
 
-#endif
-
-#ifndef BAT_MEASURE_ADC_UNIT // ADC1 is default
-static const adc1_channel_t adc_channel = (adc1_channel_t)ADC_CHANNEL;
-static const adc_unit_t unit = ADC_UNIT_1;
-#else // ADC2
-static const adc2_channel_t adc_channel = (adc2_channel_t)ADC_CHANNEL;
-static const adc_unit_t unit = ADC_UNIT_2;
-RTC_NOINIT_ATTR uint64_t RTC_reg_b;
-
-#endif // BAT_MEASURE_ADC_UNIT
-
-
 #ifdef EXT_CHRG_DETECT
 #ifndef EXT_CHRG_DETECT_MODE
 static const uint8_t ext_chrg_detect_mode = INPUT;
