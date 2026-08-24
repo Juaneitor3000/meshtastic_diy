@@ -58,6 +58,8 @@ esp_adc_cal_characteristics_t *adc_characs = (esp_adc_cal_characteristics_t *)ca
 #define ETH ETH2
 #endif // HAS_ETHERNET
 
+#endif
+
 #ifdef EXT_CHRG_DETECT
 #ifndef EXT_CHRG_DETECT_MODE
 static const uint8_t ext_chrg_detect_mode = INPUT;
