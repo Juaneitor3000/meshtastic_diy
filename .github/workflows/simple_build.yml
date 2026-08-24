@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: esp32c3_juan_minima_diy_firmware
-          path: .pio/build/esp32c3_juan_minima_diy/firmware.bin
+          path: .pio/build/esp32c3_juan_minima_diy/*
           
