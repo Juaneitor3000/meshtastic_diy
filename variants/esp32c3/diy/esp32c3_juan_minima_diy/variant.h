@@ -82,8 +82,11 @@
 // --------------------------------------------------------------------------
 // Battery ADC
 // --------------------------------------------------------------------------
+#define HAS_TELEMETRY 1
+#define HAS_BATTERY 1
 #define BATTERY_PIN 1
-#define ADC_MULTIPLIER 2.0f
+#define ADC_MULTIPLIER 1.83f
+#define BATTERY_SENSE_RESOLUTION 12
 
 // --------------------------------------------------------------------------
 // USB
