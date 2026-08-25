@@ -108,6 +108,7 @@
 #ifdef BATTERY_PIN
 #undef BATTERY_PIN
 #endif
+#define BATTERY_PIN -1 
 // #define BATTERY_PIN 1          // розкоментуєш пізніше
 
 #ifdef ADC_MULTIPLIER
