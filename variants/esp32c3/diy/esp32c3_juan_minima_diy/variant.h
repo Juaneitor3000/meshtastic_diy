@@ -25,10 +25,16 @@
 #undef HAS_I2C
 #define HAS_I2C 0
 
+#ifdef I2C_SDA
 #undef I2C_SDA
-#undef I2C_SCL
+#endif
 #define I2C_SDA -1
+
+#ifdef I2C_SCL
+#undef I2C_SCL
+#endif
 #define I2C_SCL -1
+
 
 // --------------------------------------------------------------------------
 // SPI bus
