@@ -93,6 +93,10 @@
 #define ADC_MULTIPLIER 1.83f
 #define BATTERY_SENSE_RESOLUTION 12
 
+// Додаємо явне визначення ослаблення ADC для ESP32-C3:
+#define ADC_ATTENUATION ADC_ATTEN_DB_12
+#define BATTERY_ATTENUATION ADC_ATTEN_DB_12
+
 // --------------------------------------------------------------------------
 // USB
 // --------------------------------------------------------------------------
