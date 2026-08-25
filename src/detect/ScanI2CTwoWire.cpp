@@ -118,6 +118,7 @@ uint16_t ScanI2CTwoWire::getRegisterValue(const ScanI2CTwoWire::RegisterLocation
 
 void ScanI2CTwoWire::scanPort(I2CPort port, uint8_t *address, uint8_t asize)
 {
+    return;
     concurrency::LockGuard guard((concurrency::Lock *)&lock);
 
     LOG_DEBUG("Scan for I2C devices on port %d", port);
