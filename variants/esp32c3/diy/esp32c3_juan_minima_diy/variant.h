@@ -115,9 +115,6 @@
 #endif
 // #define ADC_MULTIPLIER 1.83f
 
-#define ADC_ATTENUATION ADC_ATTEN_DB_12
-#define BATTERY_ATTENUATION ADC_ATTEN_DB_12
-
 // --------------------------------------------------------------------------
 // USB
 // --------------------------------------------------------------------------
