@@ -20,8 +20,11 @@
 #define BUTTON_PIN 0
 
 // --------------------------------------------------------------------------
-// I2C (defined but unused yet)
+// I2C (Fully Disabled)
 // --------------------------------------------------------------------------
+#undef HAS_I2C
+#define HAS_I2C 0
+
 #undef I2C_SDA
 #undef I2C_SCL
 #define I2C_SDA -1
