@@ -20,10 +20,28 @@
 #define BUTTON_PIN 0
 
 // --------------------------------------------------------------------------
-// I2C (defined but unused yet)
+// I2C — повністю вимикаємо
 // --------------------------------------------------------------------------
-#define I2C_SDA 1
-#define I2C_SCL 0
+#ifdef HAS_I2C
+#undef HAS_I2C
+#endif
+#define HAS_I2C 0
+
+#ifdef I2C_SDA
+#undef I2C_SDA
+#endif
+#define I2C_SDA -1
+
+#ifdef I2C_SCL
+#undef I2C_SCL
+#endif
+#define I2C_SCL -1
+
+#ifdef WIRE_INTERFACES_COUNT
+#undef WIRE_INTERFACES_COUNT
+#endif
+#define WIRE_INTERFACES_COUNT 0
+
 
 // --------------------------------------------------------------------------
 // SPI bus
@@ -78,6 +96,25 @@
 #undef GPS_TX_PIN
 
 #undef USE_PMU
+
+// --------------------------------------------------------------------------
+// Battery — поки вимкнено
+// --------------------------------------------------------------------------
+#ifdef HAS_BATTERY
+#undef HAS_BATTERY
+#endif
+#define HAS_BATTERY 0
+
+#ifdef BATTERY_PIN
+#undef BATTERY_PIN
+#endif
+#define BATTERY_PIN -1 
+// #define BATTERY_PIN 1          // розкоментуєш пізніше
+
+#ifdef ADC_MULTIPLIER
+#undef ADC_MULTIPLIER
+#endif
+// #define ADC_MULTIPLIER 1.83f
 
 // --------------------------------------------------------------------------
 // USB

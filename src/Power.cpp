@@ -20,6 +20,22 @@
 #include "meshUtils.h"
 #include "sleep.h"
 
+#undef DELAY_FOREVER
+#define DELAY_FOREVER 0xFFFFFFFFUL
+
+#ifndef ADC_CHANNEL
+#define ADC_CHANNEL ADC_CHANNEL_9
+#endif
+
+#ifndef BATTERY_PIN
+#define BATTERY_PIN 9
+#endif
+
+static const adc_atten_t atten = ADC_ATTEN_DB_12;
+static const adc1_channel_t adc_channel = (adc1_channel_t)ADC_CHANNEL;
+static const adc_unit_t unit = ADC_UNIT_1;
+esp_adc_cal_characteristics_t *adc_characs = (esp_adc_cal_characteristics_t *)calloc(1, sizeof(esp_adc_cal_characteristics_t));
+
 #if defined(ARCH_PORTDUINO)
 #include "api/WiFiServerAPI.h"
 #include "input/LinuxInputImpl.h"
@@ -43,30 +59,6 @@
 #endif // HAS_ETHERNET
 
 #endif
-
-#ifndef DELAY_FOREVER
-#define DELAY_FOREVER portMAX_DELAY
-#endif
-
-#if defined(BATTERY_PIN) && defined(ARCH_ESP32)
-
-#ifndef BAT_MEASURE_ADC_UNIT // ADC1 is default
-static const adc1_channel_t adc_channel = ADC_CHANNEL;
-static const adc_unit_t unit = ADC_UNIT_1;
-#else // ADC2
-static const adc2_channel_t adc_channel = ADC_CHANNEL;
-static const adc_unit_t unit = ADC_UNIT_2;
-RTC_NOINIT_ATTR uint64_t RTC_reg_b;
-
-#endif // BAT_MEASURE_ADC_UNIT
-
-esp_adc_cal_characteristics_t *adc_characs = (esp_adc_cal_characteristics_t *)calloc(1, sizeof(esp_adc_cal_characteristics_t));
-#ifndef ADC_ATTENUATION
-static const adc_atten_t atten = ADC_ATTEN_DB_12;
-#else
-static const adc_atten_t atten = ADC_ATTENUATION;
-#endif
-#endif // BATTERY_PIN && ARCH_ESP32
 
 #ifdef EXT_CHRG_DETECT
 #ifndef EXT_CHRG_DETECT_MODE
