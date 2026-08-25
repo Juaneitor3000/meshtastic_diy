@@ -20,9 +20,11 @@
 #define BUTTON_PIN 0
 
 // --------------------------------------------------------------------------
-// I2C (Fully Disabled)
+// I2C — повністю вимикаємо
 // --------------------------------------------------------------------------
+#ifdef HAS_I2C
 #undef HAS_I2C
+#endif
 #define HAS_I2C 0
 
 #ifdef I2C_SDA
@@ -34,6 +36,11 @@
 #undef I2C_SCL
 #endif
 #define I2C_SCL -1
+
+#ifdef WIRE_INTERFACES_COUNT
+#undef WIRE_INTERFACES_COUNT
+#endif
+#define WIRE_INTERFACES_COUNT 0
 
 
 // --------------------------------------------------------------------------
@@ -91,16 +98,23 @@
 #undef USE_PMU
 
 // --------------------------------------------------------------------------
-// Battery ADC
+// Battery — поки вимкнено
 // --------------------------------------------------------------------------
-#define HAS_TELEMETRY 1
+#ifdef HAS_BATTERY
+#undef HAS_BATTERY
+#endif
 #define HAS_BATTERY 0
-//#define BATTERY_PIN 1
-//#define ADC_MULTIPLIER 1.83f
-//#define BATTERY_SENSE_RESOLUTION 12
 
+#ifdef BATTERY_PIN
+#undef BATTERY_PIN
+#endif
+// #define BATTERY_PIN 1          // розкоментуєш пізніше
 
-// Додаємо явне визначення ослаблення ADC для ESP32-C3:
+#ifdef ADC_MULTIPLIER
+#undef ADC_MULTIPLIER
+#endif
+// #define ADC_MULTIPLIER 1.83f
+
 #define ADC_ATTENUATION ADC_ATTEN_DB_12
 #define BATTERY_ATTENUATION ADC_ATTEN_DB_12
 
